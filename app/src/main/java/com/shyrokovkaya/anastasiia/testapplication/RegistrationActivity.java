@@ -17,10 +17,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setHomeButtonEnabled(true);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
+        setTitle(R.string.new_user_title);
     }
 
     public void submit(View view) {
@@ -62,9 +59,9 @@ public class RegistrationActivity extends AppCompatActivity {
             DatabaseHelper mDatabaseHelper = new DatabaseHelper(this);
             if (mDatabaseHelper.addUser(user)) {
                 startActivity(new Intent(RegistrationActivity.this, UserListActivity.class));
+                finish();
             }
         }
-
     }
 
     private void trimAllFields() {
@@ -80,15 +77,4 @@ public class RegistrationActivity extends AppCompatActivity {
         field.setText(field.getText().toString().trim());
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                //Write your logic here
-//                this.finish();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
 }

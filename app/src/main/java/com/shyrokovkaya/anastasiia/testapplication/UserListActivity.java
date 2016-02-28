@@ -25,6 +25,7 @@ public class UserListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
         setTitle("User list");
+        setTitle(R.string.user_list_title);
 
         displayUserList();
     }

@@ -8,6 +8,11 @@
     <string name="submit">Submit</string>
     <string name="users_title">My Activity Title</string>
     <string name="add_new">Add new user</string>
-    <string name="user_details_title">User details</string>
     <string name="photo">photo</string>
+    <string name="splash">splash</string>
+    <string name="splash_description">Anstastasiia Shyrokovskaya - test app</string>
+
+    <string name="user_list_title">User list</string>
+    <string name="new_user_title">New user</string>
+    <string name="user_details_title">User details</string>
 </resources>
