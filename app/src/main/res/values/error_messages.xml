@@ -1,6 +1,8 @@
 <resources>
     <string name="invalid_name">name is not valid</string>
     <string name="invalid_email">email is not valid</string>
+    <string name="email_exists">email is already exists</string>
     <string name="invalid_phone">phone is not valid</string>
     <string name="invalid_url">url address is not valid</string>
+
 </resources>

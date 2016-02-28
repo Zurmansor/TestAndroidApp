@@ -78,6 +78,14 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
         return mCursor;
     }
 
+    public boolean isEmailExists(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor mCursor = db.rawQuery("select * from " + DATABASE_TABLE + " where " + EMAIL_COLUMN + "='" + email + "'", null);
+        db.close();
+        return mCursor != null;
+    }
+
+
     public boolean addUser(User user) {
         ContentValues cv = new ContentValues();
         cv.put(DatabaseHelper.FIRST_NAME_COLUMN, user.getFirstName());

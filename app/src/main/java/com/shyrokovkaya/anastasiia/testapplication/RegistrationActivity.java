@@ -1,8 +1,8 @@
 package com.shyrokovkaya.anastasiia.testapplication;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -49,6 +49,14 @@ public class RegistrationActivity extends AppCompatActivity {
             isValid = false;
         }
 
+        DatabaseHelper mDatabaseHelper = new DatabaseHelper(this);
+        if (isValid) {
+            if (mDatabaseHelper.isEmailExists(emailField.getText().toString())) {
+                emailField.setError(this.getResources().getString(R.string.email_exists));
+                isValid = false;
+            }
+        }
+
         if (isValid) {
             user.setFirstName(firstNameField.getText().toString());
             user.setLastName(lastNameField.getText().toString());
@@ -56,7 +64,7 @@ public class RegistrationActivity extends AppCompatActivity {
             user.setEmail(emailField.getText().toString());
             user.setWeb(urlField.getText().toString());
 
-            DatabaseHelper mDatabaseHelper = new DatabaseHelper(this);
+            mDatabaseHelper = new DatabaseHelper(this);
             if (mDatabaseHelper.addUser(user)) {
                 startActivity(new Intent(RegistrationActivity.this, UserListActivity.class));
                 finish();
