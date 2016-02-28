@@ -15,23 +15,17 @@ import com.shyrokovkaya.anastasiia.testapplication.helpers.StringUtils;
 
 public class UserListActivity extends AppCompatActivity {
 
-    private DatabaseHelper mDatabaseHelper;
-    private SimpleCursorAdapter dataAdapter;
-
-    private ListView userList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
-        setTitle("User list");
         setTitle(R.string.user_list_title);
 
         displayUserList();
     }
 
     private void displayUserList() {
-        mDatabaseHelper = new DatabaseHelper(this);
+        DatabaseHelper mDatabaseHelper = new DatabaseHelper(this);
         Cursor cursor = mDatabaseHelper.fetchAllUsers();
 
         String[] fromColumns = new String[] {
@@ -50,13 +44,14 @@ public class UserListActivity extends AppCompatActivity {
                 R.id.url
         };
 
-        dataAdapter = new SimpleCursorAdapter(
+        SimpleCursorAdapter dataAdapter = new SimpleCursorAdapter(
                 this, R.layout.user_row,
                 cursor,
                 fromColumns,
                 toView,
                 0);
 
+        // full name bind
         dataAdapter.setViewBinder(new NameViewBinder());
 
         ListView userList = (ListView) findViewById(R.id.user_list);

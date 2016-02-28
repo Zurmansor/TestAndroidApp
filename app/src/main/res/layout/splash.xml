@@ -7,18 +7,17 @@
     tools:context=".Splash">
 
     <ImageView android:id="@+id/splashscreen"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:src="@drawable/splash"
         android:scaleType="centerCrop"
         android:contentDescription="@string/splash" />
 
     <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
-        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
-        android:layout_marginBottom="124dp" />
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"/>
 
 
     <LinearLayout

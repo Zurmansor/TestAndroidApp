@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 public class Splash extends Activity {
-    private final int SPLASH_DISPLAY_LENGTH = 3000;
+    private final int SPLASH_DELAY = 3000;
     private final int SLEEP = 50;
 
     @Override
@@ -18,23 +18,22 @@ public class Splash extends Activity {
         final ProgressBar bar = (ProgressBar) findViewById(R.id.progressBar);
         bar.getProgressDrawable().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
 
-        Thread background = new Thread (new Runnable() {
+        Thread progressBarLoader = new Thread (new Runnable() {
             public void run() {
                 try {
-                    int increment = SLEEP * 100 / SPLASH_DISPLAY_LENGTH;
+                    int increment = SLEEP * 100 / SPLASH_DELAY;
                     while (bar.getProgress() < 100) {
                         Thread.sleep(SLEEP);
                         bar.incrementProgressBy(increment);
                     }
-                    Intent mainIntent = new Intent(Splash.this, UserListActivity.class);
-                    Splash.this.startActivity(mainIntent);
-                    Splash.this.finish();
+                    startActivity(new Intent(Splash.this, UserListActivity.class));
+                    finish();
                 } catch (java.lang.InterruptedException e) {
-                    // if something fails do something smart
+
                 }
             }
         });
-        background.start();
+        progressBarLoader.start();
 
     }
 }

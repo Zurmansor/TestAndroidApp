@@ -61,6 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
+        db.close();
         return mCursor;
     }
 
@@ -73,6 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
+        db.close();
         return mCursor;
     }
 
@@ -85,6 +87,8 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
         cv.put(DatabaseHelper.URL_COLUMN, user.getWeb());
 
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.insert(DATABASE_TABLE, null, cv) != -1;
+        boolean res = db.insert(DATABASE_TABLE, null, cv) != -1;
+        db.close();
+        return res;
     }
 }

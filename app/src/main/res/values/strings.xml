@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Zurmansor Application</string>
+    <string name="user_list_title">User list</string>
+    <string name="new_user_title">New user</string>
+    <string name="user_details_title">User details</string>
+
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
@@ -11,8 +15,4 @@
     <string name="photo">photo</string>
     <string name="splash">splash</string>
     <string name="splash_description">Anstastasiia Shyrokovskaya - test app</string>
-
-    <string name="user_list_title">User list</string>
-    <string name="new_user_title">New user</string>
-    <string name="user_details_title">User details</string>
 </resources>
