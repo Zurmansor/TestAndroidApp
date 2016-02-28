@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Zurmansor Application</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="web">Web</string>
+    <string name="submit">Submit</string>
+    <string name="users_title">My Activity Title</string>
+    <string name="add_new">Add new</string>
+</resources>
