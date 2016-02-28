@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.shyrokovkaya.anastasiia.testapplication.helpers.DatabaseHelper;
+import com.shyrokovkaya.anastasiia.testapplication.model.User;
 import com.shyrokovkaya.anastasiia.testapplication.validator.Type;
 import com.shyrokovkaya.anastasiia.testapplication.validator.Validator;
 
@@ -25,7 +27,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public void submit(View view) {
         User user = new User();
-        Validator validator = new Validator();
+        Validator validator = new Validator(this);
 
         trimAllFields();
 

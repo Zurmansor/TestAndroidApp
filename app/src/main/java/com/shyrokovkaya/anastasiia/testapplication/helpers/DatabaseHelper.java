@@ -1,13 +1,14 @@
-package com.shyrokovkaya.anastasiia.testapplication;
+package com.shyrokovkaya.anastasiia.testapplication.helpers;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+
+import com.shyrokovkaya.anastasiia.testapplication.model.User;
 
 public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
 
@@ -30,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
             + EMAIL_COLUMN + " text not null, "
             + WEB_COLUMN + " text not null);";
 
-    DatabaseHelper(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

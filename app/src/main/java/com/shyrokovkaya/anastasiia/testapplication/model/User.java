@@ -1,4 +1,4 @@
-package com.shyrokovkaya.anastasiia.testapplication;
+package com.shyrokovkaya.anastasiia.testapplication.model;
 
 public class User {
     private String firstName;
