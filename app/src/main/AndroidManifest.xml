@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RegistrationActivity"></activity>
-        <activity android:name=".UsersActivity">
+        <activity android:name=".UserListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

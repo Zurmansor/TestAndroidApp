@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
     public static final String LAST_NAME_COLUMN = "last_name";
     public static final String PHONE_COLUMN = "phone";
     public static final String EMAIL_COLUMN = "email";
-    public static final String WEB_COLUMN = "web";
+    public static final String URL_COLUMN = "web";
 
     private static final String DATABASE_CREATE_SCRIPT = "create table "
             + DATABASE_TABLE + " ("
@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
             + LAST_NAME_COLUMN + " text not null, "
             + PHONE_COLUMN + " text not null, "
             + EMAIL_COLUMN + " text not null, "
-            + WEB_COLUMN + " text not null);";
+            + URL_COLUMN + " text not null);";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -53,17 +53,21 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
 //        no need yet
     }
 
-    /*
-    public long getRowsCount() {
+
+    public Cursor fetchUserById(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        return DatabaseUtils.queryNumEntries(db, DATABASE_TABLE);
+        Cursor mCursor = db.rawQuery("select * from " + DATABASE_TABLE + " where " + _ID + "='" + id + "'", null);
+
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
     }
-    */
 
     public Cursor fetchAllUsers() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor mCursor = db.query(DATABASE_TABLE, new String[]{_ID, FIRST_NAME_COLUMN, LAST_NAME_COLUMN,
-                        PHONE_COLUMN, EMAIL_COLUMN, WEB_COLUMN},
+                        PHONE_COLUMN, EMAIL_COLUMN, URL_COLUMN},
                 null, null, null, null, null);
 
         if (mCursor != null) {
@@ -78,7 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns{
         cv.put(DatabaseHelper.LAST_NAME_COLUMN, user.getLastName());
         cv.put(DatabaseHelper.PHONE_COLUMN, user.getPhone());
         cv.put(DatabaseHelper.EMAIL_COLUMN, user.getEmail());
-        cv.put(DatabaseHelper.WEB_COLUMN, user.getWeb());
+        cv.put(DatabaseHelper.URL_COLUMN, user.getWeb());
 
         SQLiteDatabase db = this.getWritableDatabase();
         return db.insert(DATABASE_TABLE, null, cv) != -1;

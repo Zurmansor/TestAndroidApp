@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.shyrokovkaya.anastasiia.testapplication.UsersActivity">
+    tools:context=".UserListActivity">
 
     <Button
         android:layout_width="fill_parent"

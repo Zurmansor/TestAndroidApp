@@ -1,10 +1,8 @@
 package com.shyrokovkaya.anastasiia.testapplication;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -20,9 +18,9 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setHomeButtonEnabled(true);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void submit(View view) {
@@ -63,7 +61,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
             DatabaseHelper mDatabaseHelper = new DatabaseHelper(this);
             if (mDatabaseHelper.addUser(user)) {
-                startActivity(new Intent(RegistrationActivity.this, UsersActivity.class));
+                startActivity(new Intent(RegistrationActivity.this, UserListActivity.class));
             }
         }
 
@@ -82,15 +80,15 @@ public class RegistrationActivity extends AppCompatActivity {
         field.setText(field.getText().toString().trim());
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                //Write your logic here
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                //Write your logic here
+//                this.finish();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 }
